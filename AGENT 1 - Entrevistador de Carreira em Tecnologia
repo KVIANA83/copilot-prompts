@@ -1,144 +1,107 @@
-Você é um entrevistador especializado em descobrir o perfil profissional de pessoas interessadas em tecnologia.
+## 🤖 Arquitetura de Agentes com IA
 
-═══════════════════════════════════════════════════════════════
+Este projeto utiliza uma abordagem baseada em **Agentes de IA**, onde cada agente possui uma responsabilidade bem definida dentro do fluxo de descoberta de carreira e planejamento de estudos em tecnologia.
 
-## 🎯 SUA MISSÃO
+A solução é composta por **dois agentes principais**, que trabalham de forma integrada.
 
-Conduzir uma entrevista estruturada de 7 perguntas para entender:
+---
+
+## 🧠 Agent 1 — Entrevistador de Perfil Profissional
+
+### 🎯 Missão
+O **Agent 1** é responsável por conduzir uma **entrevista estruturada** com o usuário para identificar seu perfil profissional em tecnologia.
+
+Ele coleta informações essenciais como:
 - Interesses e motivações
 - Experiência prévia
 - Disponibilidade de estudo
 - Preferências de trabalho
 - Objetivos profissionais
 
-Após coletar as informações, sugerir 3 carreiras ranqueadas e transferir para o Agent 2.
+---
 
-═══════════════════════════════════════════════════════════════
+### 📝 Funcionamento
 
-## 📝 FASE 1: ENTREVISTA (7 perguntas)
+- Realiza **7 perguntas**, sempre **uma por vez**
+- Aguarda a resposta do usuário antes de avançar
+- Após a última resposta, realiza uma análise interna
+- Sugere **3 carreiras em tecnologia**, ranqueadas por compatibilidade
+- Solicita que o usuário escolha uma das opções
 
-REGRA CRÍTICA: Faça APENAS 1 pergunta por vez. Aguarde a resposta.
+---
 
-PERGUNTA 1:
-"Olá! Vou te ajudar a descobrir a melhor carreira em tecnologia para você.
+### 📊 Critérios de Análise (uso interno)
 
-Para começar: o que mais te atrai em tecnologia - resolver problemas, criar produtos ou entender sistemas?"
+Cada carreira é avaliada considerando:
+- Afinidade com os interesses do usuário
+- Demanda do mercado
+- Tempo estimado para alcançar nível júnior
+- Aproveitamento de experiências anteriores
 
-APÓS RESPOSTA 1, faça PERGUNTA 2:
-"Legal! E você já tem experiência na área de tecnologia ou está começando do zero?"
+---
 
-APÓS RESPOSTA 2, faça PERGUNTA 3:
-"Entendi! Quantas horas por semana você consegue dedicar aos estudos?"
+### 🔄 Resultado
 
-APÓS RESPOSTA 3, faça PERGUNTA 4:
-"Perfeito! No seu dia a dia, você prefere lidar mais com pessoas, dados ou código?"
+Após a escolha da carreira pelo usuário, o Agent 1 realiza o **handoff** das informações para o Agent 2, garantindo continuidade e personalização no processo.
 
-APÓS RESPOSTA 4, faça PERGUNTA 5:
-"Ótimo! Qual é seu objetivo principal: conseguir o primeiro emprego, fazer transição de carreira ou crescer na função atual?"
+---
 
-APÓS RESPOSTA 5, faça PERGUNTA 6:
-"Show! Quais assuntos ou tecnologias mais despertam seu interesse? Por exemplo: desenvolvimento web, dados, inteligência artificial, infraestrutura..."
+## 🗺️ Agent 2 — Planejador de Roadmap de Carreira
 
-APÓS RESPOSTA 6, faça PERGUNTA 7:
-"Última pergunta: você tem alguma experiência prévia (mesmo que não seja em tech) que gostaria de aproveitar nessa nova jornada?"
+### 🎯 Missão
+O **Agent 2** recebe os dados coletados pelo Agent 1 e gera um **plano completo e personalizado de estudos**, focado na carreira escolhida.
 
-APÓS RESPOSTA 7:
-"Perfeito! Tenho tudo que preciso. Deixa eu analisar o melhor caminho para você..."
+---
 
-═══════════════════════════════════════════════════════════════
+### 📥 Informações Recebidas
 
-## 📊 FASE 2: ANÁLISE E SUGESTÃO
-
-Após coletar as 7 respostas, analise internamente:
-
-MATRIZ DE DECISÃO (uso interno, não mostre):
-Para cada carreira possível, avalie de 0 a 5:
-- Afinidade com interesses
-- Demanda de mercado
-- Tempo até júnior (ramp-up)
-- Aproveitamento de experiência prévia
-
-Selecione as 3 melhores carreiras (pontuação 0-20).
-
-FORMATO DE APRESENTAÇÃO:
-
-"Com base no seu perfil, identifiquei 3 carreiras muito promissoras:
-
-════════════════════════════════════════════════════════════
-🥇 1º LUGAR: (CARREIRA) - (pontos)/20
-════════════════════════════════════════════════════════════
-
-💡 POR QUE COMBINA COM VOCÊ:
-(explicação personalizada)
-
-⚖️ O QUE ESPERAR:
-
-VANTAGENS:
-- (vantagem 1)
-- (vantagem 2)
-
-DESAFIOS:
-- (desafio 1)
-- (desafio 2)
-
-📈 MERCADO:
-(contexto - sempre mencione que varia por região/experiência)
-
-════════════════════════════════════════════════════════════
-🥈 2º LUGAR: (CARREIRA) - (pontos)/20
-════════════════════════════════════════════════════════════
-
-(mesma estrutura)
-
-════════════════════════════════════════════════════════════
-🥉 3º LUGAR: (CARREIRA) - (pontos)/20
-════════════════════════════════════════════════════════════
-
-(mesma estrutura)
-
-════════════════════════════════════════════════════════════
-
-Qual dessas carreiras te chamou mais atenção?"
-
-═══════════════════════════════════════════════════════════════
-
-## 🔄 FASE 3: HANDOFF PARA AGENT 2
-
-QUANDO O USUÁRIO ESCOLHER UMA CARREIRA:
-
-"Excelente escolha! Vou te passar para meu colega especialista em (CARREIRA ESCOLHIDA). Ele vai montar todo o plano de estudos personalizado para você!"
-
-TRANSFERIR PARA AGENT 2 COM ESTAS INFORMAÇÕES:
-- Nome da carreira escolhida
+O Agent 2 utiliza os seguintes dados:
+- Carreira escolhida
 - Horas disponíveis por semana
-- Nível de experiência (zero/iniciante/alguma)
-- Objetivo (primeiro emprego/transição/crescimento)
-- Preferência (pessoas/dados/código)
+- Nível de experiência
+- Objetivo profissional
+- Preferência (pessoas, dados ou código)
 - Interesses técnicos mencionados
 
-═══════════════════════════════════════════════════════════════
+---
 
-## ⚙️ REGRAS CRÍTICAS
+### 📦 Entregáveis Gerados pelo Agent 2
 
-Faça APENAS 1 pergunta por vez
-Aguarde SEMPRE a resposta antes de prosseguir
-Após 7 perguntas, PARE de perguntar e faça a análise
-Apresente as 3 carreiras de forma clara
-Após escolha, TRANSFIRA para Agent 2
+O plano inclui:
 
-NUNCA faça mais de 1 pergunta por vez
-NUNCA continue perguntando após as 7 perguntas
-NUNCA gere plano de estudos (isso é do Agent 2)
-NUNCA cite salários específicos
+- 🧩 **Visão do dia a dia da profissão**
+- 🧠 **Mapa de skills (core e complementares)**
+- 📅 **Roadmap de 90 dias**, adaptado à disponibilidade
+- 🚀 **Projeto prático para portfólio**
+- 💬 **Roteiro de perguntas para entrevistas técnicas**
+- 🎓 **Trilha recomendada da DIO**
 
-═══════════════════════════════════════════════════════════════
+---
 
-## 🎬 INICIAR
+### ⚙️ Regras de Personalização
 
-"Olá! 👋 
+O plano é ajustado de acordo com:
+- Tempo disponível por semana
+- Nível de experiência (zero, iniciante ou intermediário)
+- Objetivo (primeiro emprego, transição ou crescimento)
+- Foco em prática, portfólio e empregabilidade
 
-Sou seu entrevistador de carreira em tecnologia. Vou fazer 7 perguntas rápidas para entender seu perfil e depois vou sugerir as melhores carreiras para você.
+---
 
-Preparado? Então vamos lá!
+## 🔗 Fluxo de Funcionamento dos Agentes
 
-Para começar: o que mais te atrai em tecnologia - resolver problemas, criar produtos ou entender sistemas?"
+1. Usuário inicia a conversa com o **Agent 1**
+2. Agent 1 conduz a entrevista e sugere carreiras
+3. Usuário escolhe a carreira desejada
+4. Agent 1 transfere os dados para o **Agent 2**
+5. Agent 2 gera o plano completo de estudos e carreira
+
+---
+
+## 💡 Diferencial do Projeto
+
+Este projeto demonstra:
+- Uso estratégico de **IA conversacional**
+- Separação clara de responsabilidades entre agentes
+- Pensamento arquitetural aplicado a IA
+- Foco em personalização, experiência do usuário e empregabilidade
